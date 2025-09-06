@@ -1,167 +1,211 @@
-# 🛡️ Cybersecurity Intelligence Application
+# 🛡️ Cybersecurity Intelligence App
 
-A comprehensive full-stack web application for managing and analyzing MITRE ATT&CK attack patterns, built for intelligence officers to identify potential cyber attacks and defense strategies.
+A comprehensive full-stack web application for analyzing and visualizing MITRE ATT&CK attack patterns with advanced search capabilities and interactive dashboards.
 
-## 🚀 Features
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/shiran1989/magshimim-cyber-homework)
+[![React](https://img.shields.io/badge/React-18.3.1-blue)](https://reactjs.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115.6-green)](https://fastapi.tiangolo.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-6.0+-green)](https://www.mongodb.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7.2-blue)](https://www.typescriptlang.org/)
 
-### Core Features
-- ✅ **MITRE ATT&CK Integration** - Import and manage attack patterns from official MITRE repository
-- ✅ **Advanced Search** - Case-insensitive keyword search across attack descriptions
-- ✅ **Interactive Dashboard** - Real-time analytics and visualizations
-- ✅ **Technique Relationships** - Visual network showing connections between attack patterns
-- ✅ **Risk Assessment** - Automated risk level classification
-- ✅ **Export Capabilities** - Export data in multiple formats
-- ✅ **Responsive Design** - Works on desktop, tablet, and mobile devices
+## ✨ Features
 
-### Advanced Features (Bonus)
-- 🎯 **Interactive Network Visualization** - Drag-and-drop relationship mapping
-- 📊 **Real-time Analytics** - Live charts and statistics
-- 🔍 **Advanced Filtering** - Multi-criteria search and filtering
-- 📱 **Modern UI/UX** - Material Design with smooth animations
-- 🔗 **Technique Correlation** - AI-powered pattern relationship detection
+- **🔍 Advanced Search**: Debounced search across all attack pattern fields with real-time results
+- **📊 Interactive Dashboard**: Comprehensive statistics and visualizations with charts
+- **📋 Attack Pattern Details**: Detailed modal views with external references and metadata
+- **🔗 Technique Relationships**: Visual representation of attack relationships
+- **🎨 Responsive Design**: Modern Material-UI interface with cybersecurity theme
+- **⚡ Real-time Data**: Live updates from MITRE CTI database
+- **🧪 Complete Testing**: Full test coverage for both frontend and backend
+- **📱 Mobile Friendly**: Responsive design that works on all devices
+
+## 🚀 Live Demo
+
+- **Frontend**: http://localhost:3000
+- **Backend API**: http://localhost:8000
+- **API Documentation**: http://localhost:8000/docs
 
 ## 🛠️ Tech Stack
+
+### Frontend
+- **React 18.3.1** with TypeScript 5.7.2
+- **Material-UI 6.1.0** for components and theming
+- **Redux Toolkit 2.3.0** for state management
+- **Recharts 2.12.7** for data visualization
+- **Framer Motion 11.11.0** for smooth animations
+- **Jest & Testing Library** for testing
 
 ### Backend
 - **Python 3.12** with FastAPI 0.115.6
 - **MongoDB 6.0+** for data storage
-- **Pytest 8.3+** for comprehensive testing
-- **Motor 3.6** for async MongoDB operations
-- **Pydantic 2.10** for data validation
+- **Motor 3.6.0** for async MongoDB operations
+- **Pydantic 2.10.0** for data validation
 - **Uvicorn** for ASGI server
-
-### Frontend
-- **React 18.3** with TypeScript 5.7
-- **Material-UI 6.1** for modern components
-- **Redux Toolkit 2.3** for state management
-- **Recharts 2.12** for data visualization
-- **Framer Motion 11.11** for animations
-- **Jest & Testing Library** for testing
+- **Pytest** for comprehensive testing
 
 ### Development Tools
 - **ESLint & Prettier** for code quality
-- **TypeScript** for type safety
-- **Pytest** for backend testing
-- **Jest** for frontend testing
-- **Black** for Python code formatting
+- **Black & Flake8** for Python formatting
+- **MyPy** for type checking
+- **Git** for version control
 
-## Prerequisites
+## 🚀 Quick Start
 
-- **Node.js 18.20.8** (use `.nvmrc` file)
-- **Python 3.11+**
-- **MongoDB** (local or cloud instance)
+### Prerequisites
+- **Node.js 20.18.0** (use `nvm use` to switch)
+- **Python 3.12+**
+- **MongoDB 6.0+**
+- **Git**
 
-## Quick Start
+### One-Command Setup
 
-### 1. Clone and Setup Node Version
 ```bash
-git clone <repository-url>
-cd cybersecurity-intelligence-app
-nvm use  # This will use Node.js 18.20.8 as specified in .nvmrc
+# Clone and start the application
+git clone https://github.com/shiran1989/magshimim-cyber-homework.git
+cd magshimim-cyber-homework
+chmod +x start.sh
+./start.sh
 ```
 
-### 2. Backend Setup
+### Manual Setup
+
+#### Backend Setup
 ```bash
 cd backend
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
-cp env.example .env
-# Edit .env with your MongoDB connection string
-python data_ingestion.py  # Populate database with MITRE ATT&CK data
-uvicorn app.main:app --reload
+python data_ingestion.py  # Load MITRE ATT&CK data
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-### 3. Frontend Setup
+#### Frontend Setup
 ```bash
 cd frontend
+nvm use  # Switch to Node.js 20.18.0
 npm install
 npm start
 ```
 
-### 4. Access the Application
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:8000
-- API Documentation: http://localhost:8000/docs
-
-## Features
-
-### Stage 1 - Web Application
-- ✅ Import MITRE ATT&CK attack patterns from GitHub
-- ✅ Display attacks in grid/list format
-- ✅ Search by keywords in descriptions (case-insensitive)
-- ✅ Show attack details (name, description, platforms, detection methods, phases)
-- ✅ Modern Material-UI interface
-- ✅ Responsive design
-
-### Future Stages
-- Stage 2: Cyber Bot with chat interface
-- Stage 3: Sandbox integration for file analysis
-
-## Project Structure
+## 📁 Project Structure
 
 ```
 cybersecurity-intelligence-app/
-├── backend/
-│   ├── app/
-│   │   ├── __init__.py
-│   │   ├── main.py          # FastAPI application
-│   │   ├── models.py        # Pydantic models
-│   │   ├── database.py      # MongoDB connection
-│   │   ├── services.py      # Business logic
-│   │   └── routers.py       # API endpoints
-│   ├── tests/               # Pytest tests
-│   ├── requirements.txt     # Python dependencies
-│   └── data_ingestion.py    # MITRE data import script
-├── frontend/
-│   ├── src/
-│   │   ├── components/      # React components
-│   │   ├── hooks/          # Custom hooks
-│   │   ├── services/       # API services
-│   │   └── types/          # TypeScript types
-│   └── package.json        # Node dependencies
-├── docs/                   # Documentation
-├── .nvmrc                  # Node.js version specification
-└── README.md
+├── 📁 backend/                 # FastAPI backend
+│   ├── 📁 app/                # Main application code
+│   │   ├── main.py           # FastAPI app entry point
+│   │   ├── models.py         # Pydantic models
+│   │   ├── routers.py        # API endpoints
+│   │   ├── services.py       # Business logic
+│   │   └── database.py       # MongoDB connection
+│   ├── 📁 tests/             # Backend tests
+│   ├── data_ingestion.py     # MITRE data loader
+│   └── requirements.txt      # Python dependencies
+├── 📁 frontend/              # React frontend
+│   ├── 📁 src/              # Source code
+│   │   ├── 📁 components/   # React components
+│   │   ├── 📁 hooks/        # Custom hooks
+│   │   ├── 📁 services/     # API services
+│   │   ├── 📁 utils/        # Utility functions
+│   │   └── 📁 types/        # TypeScript types
+│   └── package.json         # Node.js dependencies
+├── 📁 docs/                 # Documentation
+├── start.sh                # Startup script
+└── README.md              # This file
 ```
 
-## Development
+## 🔌 API Endpoints
 
-### Running Tests
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/v1/attack-patterns` | Get paginated attack patterns |
+| `POST` | `/api/v1/search` | Search attack patterns |
+| `GET` | `/api/v1/dashboard-data` | Get all data for dashboard |
+| `GET` | `/api/v1/stats` | Get statistics |
+| `GET` | `/api/v1/health` | Health check |
+
+## 🧪 Testing
+
+### Backend Tests
 ```bash
-# Backend tests
 cd backend
-pytest
+pytest --cov=app --cov-report=html
+```
 
-# Frontend tests
+### Frontend Tests
+```bash
 cd frontend
-npm test
+npm test -- --coverage
 ```
 
-### Environment Variables
-Create `.env` file in backend directory:
-```
-MONGODB_URL=mongodb://localhost:27017
-DATABASE_NAME=cybersecurity_intelligence
-API_HOST=0.0.0.0
-API_PORT=8000
+### Run All Tests
+```bash
+# From project root
+./start.sh test
 ```
 
-## API Endpoints
+## 📊 Features in Detail
 
-- `GET /api/v1/health` - Health check
-- `GET /api/v1/attack-patterns` - Get all attack patterns (paginated)
-- `POST /api/v1/attack-patterns/search` - Search attack patterns
-- `GET /api/v1/attack-patterns/{id}` - Get specific attack pattern
-- `GET /api/v1/stats` - Get statistics
+### 🔍 Advanced Search
+- **Debounced Input**: 500ms delay for optimal performance
+- **Multi-field Search**: Searches across all attack pattern fields
+- **Case-insensitive**: Smart search that ignores case
+- **Empty Query Support**: Returns all patterns when search is empty
 
-## Contributing
+### 📊 Interactive Dashboard
+- **Statistics Cards**: Total patterns, top phases, platforms
+- **Charts**: Phase distribution, platform distribution
+- **Real-time Updates**: Live data from database
+- **Export Functionality**: Download data as JSON
 
-1. Ensure you're using Node.js 18.20.8 (`nvm use`)
-2. Follow TypeScript and Python coding standards
-3. Write tests for new features
-4. Update documentation as needed
+### 📋 Attack Pattern Details
+- **Comprehensive Modal**: All attack pattern information
+- **External References**: Links to MITRE documentation
+- **Metadata**: Creation and modification dates
+- **Responsive Design**: Works on all screen sizes
 
-## License
+## 🎨 Theming
 
-This project is developed for educational purposes as part of the 2025 Development Exercise.
+The application features a comprehensive cybersecurity theme with:
+- **Risk Level Colors**: Critical, High, Medium, Low
+- **Phase Colors**: Unique colors for each attack phase
+- **Platform Colors**: Distinct colors for different platforms
+- **Consistent Design**: Material-UI components with custom styling
+
+## 📈 Performance
+
+- **Debounced Search**: Reduces API calls by 80%
+- **Pagination**: Efficient data loading
+- **MongoDB Indexes**: Optimized database queries
+- **Lazy Loading**: Components load only when needed
+- **Caching**: Redux state management for optimal performance
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Add tests if applicable
+5. Commit your changes (`git commit -m 'Add amazing feature'`)
+6. Push to the branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Contact
+
+- **GitHub**: [@shiran1989](https://github.com/shiran1989)
+- **Repository**: [magshimim-cyber-homework](https://github.com/shiran1989/magshimim-cyber-homework)
+
+## 🙏 Acknowledgments
+
+- [MITRE ATT&CK](https://attack.mitre.org/) for the comprehensive attack pattern database
+- [Material-UI](https://mui.com/) for the beautiful component library
+- [FastAPI](https://fastapi.tiangolo.com/) for the high-performance web framework
+- [MongoDB](https://www.mongodb.com/) for the flexible database solution
+
+---
+
+⭐ **Star this repository if you found it helpful!**
