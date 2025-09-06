@@ -56,18 +56,21 @@ A comprehensive full-stack web application for analyzing and visualizing MITRE A
 - **Python 3.12+**
 - **MongoDB 6.0+**
 - **Git**
+- **nvm** (Node Version Manager)
 
 ### One-Command Setup
 
 ```bash
-# Clone and start the application
+# Clone and setup the application
 git clone https://github.com/shiran1989/magshimim-cyber-homework.git
 cd magshimim-cyber-homework
-chmod +x start.sh
-./start.sh
+chmod +x setup.sh
+./setup.sh
 ```
 
-### Manual Setup
+### Alternative: Manual Setup
+
+If you prefer to set up manually or the automated script fails:
 
 #### Backend Setup
 ```bash
@@ -179,6 +182,52 @@ The application features a comprehensive cybersecurity theme with:
 - **MongoDB Indexes**: Optimized database queries
 - **Lazy Loading**: Components load only when needed
 - **Caching**: Redux state management for optimal performance
+
+## 🔧 Troubleshooting
+
+### Common Issues
+
+#### Node.js Version Issues
+```bash
+# If you get "Unsupported URL Type 'npm:'" error
+nvm use 20.18.0
+node --version  # Should show v20.18.0
+npm --version   # Should show 10.8.2 or higher
+```
+
+#### npm Install Fails
+```bash
+# Clear npm cache and try again
+npm cache clean --force
+rm -rf node_modules package-lock.json
+npm install
+```
+
+#### Python Dependencies
+```bash
+# If Python dependencies fail
+python3 -m pip install --upgrade pip
+python3 -m pip install -r requirements.txt
+```
+
+#### MongoDB Connection
+```bash
+# Ensure MongoDB is running
+# On macOS with Homebrew:
+brew services start mongodb-community
+# On Ubuntu/Debian:
+sudo systemctl start mongod
+```
+
+### Getting Help
+
+If you encounter issues not covered here:
+1. Check the [Issues](https://github.com/shiran1989/magshimim-cyber-homework/issues) page
+2. Create a new issue with:
+   - Your operating system
+   - Node.js version (`node --version`)
+   - Python version (`python3 --version`)
+   - Error message and steps to reproduce
 
 ## 🤝 Contributing
 
